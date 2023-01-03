@@ -1,5 +1,5 @@
 from unittest import TestCase
-from enums import Color
+from app.enums import Color
 
 
 class ColorEnumTest(TestCase):
