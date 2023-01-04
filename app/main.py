@@ -1,9 +1,9 @@
 from fastapi import FastAPI
 from fastapi.responses import FileResponse
-from .routers import color
+from app.api.api_router import api_router
 
 app = FastAPI()
-app.include_router(color.router)
+app.include_router(api_router)
 
 favicon_path = 'favicon.ico'
 
