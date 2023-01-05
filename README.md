@@ -31,3 +31,13 @@ app
 
 
 ---  
+### 로컬 실행방법
+사용환경    
+- 운영체제 - Window   
+- 터미널 - Git Bash
+- Python version : 3.9.12
+- 로컬가상환경 : pipenv
+```
+//app 폴더 상위 루트로 이동 후  
+sh scripts/start.sh
+```
