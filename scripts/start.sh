@@ -1,1 +1,1 @@
-uvicorn app.main:app --port=8000
+APP_NAME="Hello APP" ADMIN_EMAIL="kim@naver.com" uvicorn app.main:app --port=8000
