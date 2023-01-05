@@ -7,17 +7,18 @@
 app
 ├──api
 │  ├─endpoints
-│  └─api_router.py
+│  └─api_collector.py
 ├──core
 ├──enums 
 ├──models
-└──tests
+├──tests
+└──main.py
 ```
 - app
     - api
         - endpoint
             > 해당 디렉토리에 api 구현
-        - api_router.py
+        - api_collector.py
             > endpoint api 연결
 - core
     > 해당 디렉토리에 설정 클래스 추가
@@ -26,7 +27,9 @@ app
 - models 
     > 해당 디렉토리에 Base model 기반 클래스 추가
 - tests    
-  >해당 디렉토리에 테스트 구현
+    > 해당 디렉토리에 테스트 구현
+- main.py
+    > 시작 모듈
 
 
 
@@ -40,5 +43,5 @@ app
 - IDE : 파이참
 ```
 //app 폴더 상위 루트로 이동 후  
-sh scripts/start.sh
+sh scripts/startLocal.sh
 ```

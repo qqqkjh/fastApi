@@ -1,7 +1,7 @@
 import uvicorn
 from fastapi import FastAPI
 from fastapi.responses import FileResponse
-from .api.api_router import api_router
+from app.api.api_collector import api_router
 
 app = FastAPI()
 app.include_router(api_router)
@@ -21,4 +21,5 @@ async def favicon():
 
 
 if __name__ == "__main__":
-    uvicorn.run(app, host="localhost", port=8000)
+    print("--play main for debug--")
+    uvicorn.run('main:app', host="localhost", port=8000,  reload=True, reload_dirs=["app"])
