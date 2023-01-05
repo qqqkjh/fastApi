@@ -1,13 +1,13 @@
 from enum import Enum, unique
 from typing import Any
 
+
 class StrEnum(str, Enum):
     def _generate_next_value_(name, start, count, last_values):
         return name
 
     def __str__(self):
         return self.name
-
 
 
 @unique
@@ -30,4 +30,3 @@ class Color(StrEnum):
                 if member.value == value.lower():
                     return member
         return None
-

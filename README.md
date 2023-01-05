@@ -20,7 +20,7 @@ app
         - api_router.py
             > endpoint api 연결
 - core
-    > 해당 디렉토리에 설정 파일 추가
+    > 해당 디렉토리에 설정 클래스 추가
 - enums
     > 해당 디렉토리에 enum 클래스 추가
 - models 
@@ -37,6 +37,7 @@ app
 - 터미널 - Git Bash
 - Python version : 3.9.12
 - 로컬가상환경 : pipenv
+- IDE : 파이참
 ```
 //app 폴더 상위 루트로 이동 후  
 sh scripts/start.sh

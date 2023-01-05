@@ -1,2 +1,2 @@
-#! /usr/bin/env sh
-uvicorn app.main:app --reload
+python -m app.main
+#uvicorn app.main:app --reload
