@@ -19,7 +19,7 @@ load_dotenv(os.path.join(BASE_DIR, ".env"))
 
 @app.get("/")
 async def root():
-    return {"message": "Hello World"}
+    return {"message": "Hello World & Docker"}
 
 
 @app.get('/favicon.ico', include_in_schema=False)
@@ -30,11 +30,7 @@ async def favicon():
 
 @app.get("/info")
 async def info():
-    return {
-        "app_name": settings.app_name,
-        "admin_email": settings.admin_email,
-        "items_per_user": settings.items_per_user,
-    }
+    return {"settings": settings}
 
 
 @app.get("/check-dir")
