@@ -3,6 +3,7 @@ from typing import Union, List, Any
 
 from fastapi import APIRouter, Cookie, Header
 from app.models import Student
+from app.core.config import settings
 
 import logging
 
@@ -10,6 +11,13 @@ logger = logging.getLogger(__name__)
 
 router = APIRouter()
 
+@router.get("/check-env")
+async def check_cookie(ads_id: Union[str, None] = Cookie(default=None)):
+    """
+        쿠키 키값과 일치 하는 값 바인딩
+    """
+    print(settings)
+    return {"settings": settings}
 
 @router.get("/check-cookie")
 async def check_cookie(ads_id: Union[str, None] = Cookie(default=None)):
