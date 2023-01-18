@@ -1,7 +1,7 @@
 from typing import Union
 
 from fastapi import APIRouter, Query, Path
-from app.models import Student
+from app.schemas import Student
 
 router = APIRouter()
 

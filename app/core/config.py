@@ -2,24 +2,29 @@ from typing import Any, Dict, List, Optional, Union
 from pydantic import BaseSettings, validator, PostgresDsn
 from dotenv import load_dotenv
 from app.utils.path import get_env_path
-
-load_dotenv(get_env_path())
+import os
 
 
 class EnvConfig(BaseSettings):
     ENVIRONMENT: str = "local"
 
 
-env_config = EnvConfig()
+if os.environ.get("ENVIRONMENT") is None:
+    # 로컬에서만 작동
+    # 먼저 로드한 env 값이 우선권을가짐
+    # .evn load
+    load_dotenv(get_env_path())
+    env_config = EnvConfig()
 
 
-def set_evn(evn_name: str):
-    if evn_name == "local":
-        evn = f".env.{evn_name}"
-        load_dotenv(get_env_path(evn))
+    # .evn.<name>
+    def set_evn(evn_name: str):
+        if evn_name == "local" or "dev":
+            evn = f".env.{evn_name}"
+            load_dotenv(get_env_path(evn))
 
 
-set_evn(env_config.ENVIRONMENT)
+    set_evn(env_config.ENVIRONMENT)
 
 
 class Settings(BaseSettings):
@@ -27,6 +32,7 @@ class Settings(BaseSettings):
     POSTGRES_USER: str = None
     POSTGRES_PASSWORD: str = None
     POSTGRES_DB: str = None
+    POSTGRES_SCHEMA: str = None
     SQLALCHEMY_DATABASE_URI: Optional[PostgresDsn] = None
 
     @validator("SQLALCHEMY_DATABASE_URI", pre=True)

@@ -1,9 +1,12 @@
-import logging
 from typing import Union, List, Any
 
-from fastapi import APIRouter, Cookie, Header
-from app.models import Student
+from fastapi import APIRouter, Cookie, Header, Depends
+from sqlalchemy.orm import Session
+
+from app.api.deps import get_db
 from app.core.config import settings
+from app import schemas,crud
+from app.schemas import Student
 
 import logging
 
@@ -84,3 +87,9 @@ async def check_unset(item_id: str):
     student.name = None
 
     return student.dict(exclude_none=True)
+
+
+@router.post("/check-input", response_model=schemas.BigDataInput)
+def create_input(item: schemas.BigDataInputCreate, db: Session = Depends(get_db)):
+    db_input = crud.create_big_data_input(db, item)
+    return db_input
