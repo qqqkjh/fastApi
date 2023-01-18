@@ -52,3 +52,10 @@ app
 uvicorn app.main:app --port=8000
 ```
 
+---  
+### 필수 환경변수
+ENVIRONMENT=<local/dev>   
+POSTGRES_SERVER=value   
+POSTGRES_USER=value  
+POSTGRES_PASSWORD=value   
+POSTGRES_DB=value   
