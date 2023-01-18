@@ -9,9 +9,11 @@ app
 │  ├─endpoints
 │  └─api_collector.py
 ├──core
+├──db
 ├──enums 
 ├──models
 ├──tests
+├──utils
 └──main.py
 ```
 - app
@@ -20,6 +22,8 @@ app
             > 해당 디렉토리에 api 구현
         - api_collector.py
             > endpoint api 연결
+- db
+    > 해당 디렉토리에 DB 관련 클래스 추가
 - core
     > 해당 디렉토리에 설정 클래스 추가
 - enums
@@ -28,6 +32,8 @@ app
     > 해당 디렉토리에 Base model 기반 클래스 추가
 - tests    
     > 해당 디렉토리에 테스트 구현
+- utils    
+    > 해당 디렉토리에 유틸 관련 클래스 추가
 - main.py
     > 시작 모듈
 
@@ -43,5 +49,6 @@ app
 - IDE : 파이참
 ```
 //app 폴더 상위 루트로 이동 후  
-sh scripts/startLocal.sh
+uvicorn app.main:app --port=8000
 ```
+

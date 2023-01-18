@@ -1,1 +1,1 @@
-PYTHONPATH="/app/main" ENVIRONMENT="dev" uvicorn app.main:app --port=8000
+ENVIRONMENT="dev" uvicorn app.main:app --port=8000
