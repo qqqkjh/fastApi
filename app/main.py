@@ -8,14 +8,10 @@ from starlette.middleware.base import BaseHTTPMiddleware
 
 from app.api.api_collector import api_router
 from app.core.logging import log_http
+from app.utils.path import get_app_path
 
 # for Path
 favicon_path = 'favicon.ico'
-APP_DIR = os.path.dirname(os.path.abspath(__file__))
-# BASE_DIR = os.path.dirname(APP_DIR)
-# APP_DOTENV_PATH = os.path.join(BASE_DIR, ".env")
-# load_dotenv(APP_DOTENV_PATH)
-
 
 # for App
 def create_app():
@@ -40,7 +36,7 @@ async def root():
 
 @app.get('/favicon.ico', include_in_schema=False)
 async def favicon():
-    path = os.path.join(APP_DIR, favicon_path)
+    path = os.path.join(get_app_path(), favicon_path)
     print(path)
     return FileResponse(path)
 
