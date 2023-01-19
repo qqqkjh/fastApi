@@ -15,13 +15,20 @@ favicon_path = 'favicon.ico'
 
 # for App
 def create_app():
-    _app = FastAPI()
+
+    if os.environ.get("ENVIRONMENT") == ('local' or 'dev'):
+        _app = FastAPI()
+    else:
+        _app = FastAPI(docs_url=None, redoc_url=None)
+
     _app.include_router(api_router)
     _app.add_middleware(BaseHTTPMiddleware, dispatch=log_http)
 
     # off default log
     uvicorn_access = logging.getLogger("uvicorn.access")
     uvicorn_access.disabled = True
+
+
 
     return _app
 

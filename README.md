@@ -9,9 +9,11 @@ app
 │  ├─endpoints
 │  └─api_collector.py
 ├──core
+├──crud
 ├──db
 ├──enums 
 ├──models
+├──schemas
 ├──tests
 ├──utils
 └──main.py
@@ -22,14 +24,20 @@ app
             > 해당 디렉토리에 api 구현
         - api_collector.py
             > endpoint api 연결
-- db
-    > 해당 디렉토리에 DB 관련 클래스 추가
+        - deps.py
+            > 디비 세션 연결
 - core
     > 해당 디렉토리에 설정 클래스 추가
+- crud
+    > 각 model의 비즈니스 로직 추가
+- db
+    > 해당 디렉토리에 DB 커넥터 추가
 - enums
     > 해당 디렉토리에 enum 클래스 추가
 - models 
-    > 해당 디렉토리에 Base model 기반 클래스 추가
+    > 해당 디렉토리에 DB 테이블과 일치하는 sqlalchemy 기반 모델 추가
+- schemas 
+    > 해당 디렉토리에 model 과 연동할 pydantic 기반 BaseModel 추가  
 - tests    
     > 해당 디렉토리에 테스트 구현
 - utils    
@@ -59,3 +67,4 @@ POSTGRES_SERVER=value
 POSTGRES_USER=value  
 POSTGRES_PASSWORD=value   
 POSTGRES_DB=value   
+POSTGRES_SCHEMA=value
