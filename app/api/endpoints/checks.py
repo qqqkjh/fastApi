@@ -19,7 +19,7 @@ async def check_cookie(ads_id: Union[str, None] = Cookie(default=None)):
     """
         쿠키 키값과 일치 하는 값 바인딩
     """
-    print(settings)
+    #print(settings)
     return {"settings": settings}
 
 @router.get("/check-cookie")
@@ -93,3 +93,9 @@ async def check_unset(item_id: str):
 def create_input(item: schemas.BigDataInputCreate, db: Session = Depends(get_db)):
     db_input = crud.create_big_data_input(db, item)
     return db_input
+
+@router.get("/check-get-input", response_model=schemas.BigDataInput)
+def create_input(item: schemas.BigDataInputCreate, db: Session = Depends(get_db)):
+    db_input = crud.create_big_data_input(db, item)
+    return db_input
+

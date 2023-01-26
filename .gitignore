@@ -3,3 +3,4 @@
 .env.local
 .env.dev
 .env.prod
+docker-compose.yml
