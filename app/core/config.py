@@ -18,7 +18,7 @@ if os.environ.get("ENVIRONMENT") == "local" or "dev":
 
     # .evn.<name>
     def set_evn(evn_name: str):
-        if evn_name == "local" or "dev":
+        if evn_name == "local" or evn_name == "dev":
             evn = f".env.{evn_name}"
             load_dotenv(get_env_path(evn))
 

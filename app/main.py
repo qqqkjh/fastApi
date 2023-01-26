@@ -16,7 +16,7 @@ favicon_path = 'favicon.ico'
 # for App
 def create_app():
 
-    if os.environ.get("ENVIRONMENT") == 'local' or 'dev':
+    if os.environ.get("ENVIRONMENT") == 'local' or os.environ.get("ENVIRONMENT") == 'dev':
         _app = FastAPI()
     else:
         _app = FastAPI(docs_url=None, redoc_url=None)
