@@ -8,6 +8,7 @@ from app.core.config import settings
 from app import schemas,crud
 from app.schemas import Student
 
+import os
 import logging
 
 logger = logging.getLogger(__name__)
@@ -19,8 +20,8 @@ async def check_cookie(ads_id: Union[str, None] = Cookie(default=None)):
     """
         쿠키 키값과 일치 하는 값 바인딩
     """
-    #print(settings)
-    return {"settings": settings}
+    now = os.environ.get("ENVIRONMENT")
+    return {"settings": now}
 
 @router.get("/check-cookie")
 async def check_cookie(ads_id: Union[str, None] = Cookie(default=None)):
@@ -94,8 +95,9 @@ def create_input(item: schemas.BigDataInputCreate, db: Session = Depends(get_db)
     db_input = crud.create_big_data_input(db, item)
     return db_input
 
-@router.get("/check-get-input", response_model=schemas.BigDataInput)
-def create_input(item: schemas.BigDataInputCreate, db: Session = Depends(get_db)):
-    db_input = crud.create_big_data_input(db, item)
+@router.get("/check-get-input/{yy}/{shtm}/{std_no}", response_model=schemas.BigDataInput)
+def create_input(yy:str, shtm:str, std_no:str, db: Session = Depends(get_db)):
+    item = schemas.BigDataInputCreate(yy=yy,shtm=shtm,std_no=std_no)
+    db_input = crud.create_big_data_input(db,item)
     return db_input
 

@@ -9,11 +9,10 @@ class EnvConfig(BaseSettings):
     ENVIRONMENT: str = "local"
 
 
-if os.environ.get("ENVIRONMENT") is None:
+if os.environ.get("ENVIRONMENT") == "local" or "dev":
     # 로컬에서만 작동
     # 먼저 로드한 env 값이 우선권을가짐
     # .evn load
-    load_dotenv(get_env_path())
     env_config = EnvConfig()
 
 
