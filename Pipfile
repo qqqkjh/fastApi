@@ -9,6 +9,9 @@ uvicorn = "*"
 python-dotenv = "*"
 sqlalchemy = "==1.3.13"
 psycopg2 = "*"
+scikit-learn = "*"
+pandas = "*"
+imbalanced-learn = "*"
 
 [dev-packages]
 

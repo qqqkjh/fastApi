@@ -68,3 +68,43 @@ POSTGRES_USER=value
 POSTGRES_PASSWORD=value   
 POSTGRES_DB=value   
 POSTGRES_SCHEMA=value
+
+---
+### 모델 패키지 관련 목록
+```
+# 파이선 자체 GUI 관련 모듈
+from tkinter import *
+
+
+# 데이터 분석 라이브러리
+import pandas as pd
+
+  
+# 불균형 데이터 샘플링 관련 모듈
+from imblearn.over_sampling import SMOTE
+
+
+# 행렬이나 일반적으로 대규모 다차원 배열을 쉽게 처리할 수 있도록 지원하는 라이브러리
+import numpy as np
+
+
+```
+### 패키지 추가 설명
+
+#### 기본자료구조
+> 1. 리스트 [ ] : 리스트
+> 2. 튜플 ( ) : 리스트와 거의 동일하나 내부요소 수정불가능
+> 3. 딕셔너리 { } : 키-값
+
+#### pandas
+[참조사이트](https://wikidocs.net/4367)
+> Series
+> 1. 1차원 데이터를 다룸 > 배열 오토 인덱싱
+> 2. [TestCode](app/tests/test_series.py)
+
+> DataFrame
+> 1. 2차원 형식 데이터를 다룸 > 주로 테이블 형식의 데이터
+> 2. 컬럼, 데이터(로우), 인덱스로 구성
+> 3. 각 요소의 객체는 Series 타입으로 이루어짐
+> 4. [TestCode](app/tests/test_dataFrame.py)
+ 
