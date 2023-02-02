@@ -46,3 +46,20 @@ class TestDataFrame(unittest.TestCase):
 
         # ↓ 세로축
         print(data4.index)
+
+        raw_data2 = {'col0': [1, 2, 3, 4,5,6,7,8,9]
+                    ,'col1': [10, 20, 30, 40,50,60,70,80,90]
+                    ,'col2': [100, 200, 300, 400,500,600,700,800,900]
+                    ,'col3': [100, 200, 300, 400,500,600,700,800,900]
+                 }
+        data5 = DataFrame(raw_data2)
+
+        #위에서부터 5개의행
+        print(data5.head())
+        #한개의행
+        print(data5.head(n=1))
+
+        #아래에서부터 5개의행
+        print(data5.tail())
+        #한개의행
+        print(data5.tail(n=1))
