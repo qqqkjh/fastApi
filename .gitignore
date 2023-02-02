@@ -7,3 +7,4 @@ docker-compose.yml
 /app/results
 /app/tests/test_data.py
 /app/tests/test_big_data.py
+/docs/(모델 참고).ipynb
